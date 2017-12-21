@@ -1,0 +1,4 @@
+{
+  "dbUri": "mongodb://admin:admin@ds157444.mlab.com:57444/crudwithredux",
+  "jwtSecret": "mysecretreactphrase!!"
+}

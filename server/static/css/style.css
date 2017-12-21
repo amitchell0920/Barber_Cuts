@@ -1,0 +1,612 @@
+body {
+  margin: 0;
+  font-size: 16px;
+  min-height: 100%;
+}
+#logo {
+  color: rgb(24, 127, 245);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.4s;
+  font-family: Impact, "Haettenschweiler", "Franklin Gothic Bold", "Charcoal",
+    "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
+  font-size: 34px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+  box-shadow: 0 9px 2px rgb(141, 2, 2);
+  top: -6px;
+  position: relative;
+}
+
+a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.4s;
+  font-family: Budmo Jiggler;
+
+  font-size: 20px;
+}
+/* css Styling for Home page */
+#home {
+  background: url(http://reikiusui.info/wp-content/uploads/2015/12/unique-light-gray-wood-background-with-grey-wood-picture-29.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#home-logo {
+  position: relative;
+  top: 70px;
+  background: url(https://i.imgur.com/CkIUXlk.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 190px;
+  height: 140px;
+}
+#home-h3 {
+  position: relative;
+  top: 70px;
+  padding: 30px;
+  font-size: 50px;
+  font-weight: bolder;
+  font-family: Arial Black;
+}
+#home-cardtitle {
+  position: relative;
+  width: 190px;
+}
+/* end of Hmoe Page */
+a:hover {
+  color: #d21f19;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.top-bar {
+  padding: 10px 15px;
+  margin-bottom: 50px;
+  /* background-color: rgb(42, 41, 41); */
+  position: relative;
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+.top-bar::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.top-bar-left {
+  float: left;
+  font-size: 1.5em;
+}
+
+.top-bar-right {
+  float: right;
+}
+
+.top-bar a,
+.nav a {
+  margin: 0 8px;
+}
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+  width: 700px;
+}
+
+.card-heading {
+  padding: 16px;
+}
+
+.field-line,
+.button-line {
+  padding: 16px;
+}
+
+.error-message {
+  padding: 0 16px;
+  color: rgb(214, 9, 9);
+}
+
+.success-message {
+  padding: 0 16px;
+  color: rgb(201, 11, 11);
+}
+#p101 {
+  background: url(https://s3-media2.fl.yelpcdn.com/bphoto/4gIIl31Jfe1jcYmjJy1WZA/o.jpg);
+  position: relative;
+  top: 70px;
+  height: 595px;
+  color: black;
+  font-size: 20px;
+  max-width: 660px;
+  margin: auto;
+  border: 7px solid rgb(32, 32, 32);
+  padding: 25px;
+  margin: 25;
+  align-content: center;
+  right: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
+}
+#Lgform {
+  position: relative;
+  top: 29px;
+  height: 605px;
+  color: black;
+  font-size: 20px;
+  max-width: 660px;
+  margin: auto;
+  padding: 25px;
+  margin: 25;
+  align-content: center;
+  right: 10px;
+}
+#create-new-account {
+  position: relative;
+}
+#formimg {
+  position: relative;
+  height: 100px;
+  max-width: 100px;
+  right: -10px;
+  top: -4px;
+}
+#login-form {
+  background-color: rgb(78, 5, 5);
+  position: relative;
+  top: -29px;
+  height: 460px;
+}
+
+/* Add-Appointment page */
+
+#Add-Appointment {
+  background: url(http://seamlessphoto.com/pub/media/catalog/product/p/a/padraic-deasy-muslin-backdrop-serenity-spebpbsb-photography-backdrops-01.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#appointmentFrom {
+  background-color: rgb(139, 1, 1);
+  width: 700px;
+  border-radius: 6px;
+}
+
+/* Admin Page */
+#admin {
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIS0p9YPYYZPBSVrBUaMPQpcLBWe4JLyQ2_rECS7Keb2Wqpv6b);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* appointmentpage */
+#appointment {
+  background-color: rgb(173, 0, 0);
+  border-radius: 6px;
+  border-bottom: 3px;
+}
+
+#admin-card:hover {
+  position: relative;
+  background-color: rgb(25, 219, 245);
+  width: 350px;
+}
+
+#formimg2 {
+  position: relative;
+  height: 100px;
+  max-width: 100px;
+  right: -10px;
+  top: -10px;
+}
+
+#p102 {
+  position: relative;
+  top: 20px;
+  height: 680px;
+  color: black;
+  max-width: 680px;
+  margin: 50px;
+  border: 7px solid rgb(32, 32, 32);
+  padding: 70px;
+  align-content: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
+  background: url(http://www.flawlessmilano.com/wp-content/uploads/2016/05/gum-barber-shop-milano.jpg?x53037);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* height: 800px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#SPform {
+  background: url(http://ollc.org/wp-content/uploads/2013/10/hd_wall_8074.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#Andre {
+  position: relative;
+  top: 29px;
+  color: black;
+  font-size: 20px;
+  max-width: 864px;
+  margin: auto;
+  padding: 130px;
+  margin: 25;
+  align-content: center;
+  right: 10px;
+}
+
+#Andre-CardTitle {
+  position: relative;
+  right: 60px;
+}
+#linkedin2 {
+  padding: 30px;
+  position: relative;
+  right: -220px;
+  top: 10px;
+}
+
+#Eddie {
+  position: relative;
+  top: 39px;
+  color: black;
+  font-size: 20px;
+  max-width: 864px;
+  margin: auto;
+  padding: 130px;
+  margin: 25;
+  align-content: center;
+  right: 10px;
+}
+
+#Eddie-CardTitle {
+  position: relative;
+  right: 60px;
+}
+#save-profile {
+  position: absolute;
+  top: 70px;
+}
+/* profileFrom  */
+#profileFrom {
+  position: relative;
+  width: 900px;
+}
+#avatar-photo {
+  background-color: rgb(255, 255, 255);
+}
+
+#PF-from-color {
+  background-color: rgb(255, 255, 255);
+}
+
+/* space */
+#linkedin {
+  padding: 30px;
+  position: relative;
+  right: -220px;
+  top: 10px;
+}
+
+#Eddie-Social {
+  top: 50px;
+  border-radius: 20px;
+  position: relative;
+  color: white;
+  box-shadow: 0 6px 1px rgba(173, 6, 6, 0.9);
+  width: 250px;
+  top: 130px;
+  text-align: center;
+}
+
+#Andre-Social {
+  position: relative;
+  color: white;
+  box-shadow: 0 6px 1px rgba(173, 6, 6, 0.9);
+  width: 220px;
+  right: -280px;
+  top: 50px;
+  border-radius: 20px;
+}
+
+#Eddie-Social:hover {
+  box-shadow: 0 6px 1px rgba(14, 212, 57, 0.9);
+}
+
+#Andre-Social:hover {
+  box-shadow: 0 6px 1px rgba(35, 178, 235, 0.9);
+}
+
+/* footer-logo */
+#footer-logo {
+  position: relative;
+  width: 220px;
+  right: -450px;
+  top: -20px;
+}
+
+#signup-form {
+  background-color: rgb(88, 2, 2);
+  height: 560px;
+  position: relative;
+  top: -29px;
+}
+#text {
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+  height: 10px;
+  font-size: 10px;
+}
+#Login {
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+  background-color: rgb(7, 142, 221);
+  border-left-width: 19px;
+  border-right-width: 19px;
+  font-weight: bold;
+}
+#Login:hover {
+  color: rgb(255, 9, 9);
+  font-size: 25px;
+}
+/* css for the footer */
+footer p {
+  margin-bottom: 0.25rem;
+}
+footer {
+  position: relative;
+  background-color: rgb(0, 0, 0);
+  height: 290px;
+  top: 5px;
+}
+/* end of footer */
+#contact {
+  background: url(https://s-media-cache-ak0.pinimg.com/originals/f0/a3/ec/f0a3ec41ccd835e1e1fe5c0e7f0f8728.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#contact-form-div {
+  background-color: rgb(173, 0, 0);
+}
+/* contact page */
+#button {
+  background-color: rgb(246, 246, 246);
+  border-color: rgb(12, 62, 228);
+  border-radius: 20px;
+  position: relative;
+  top: 90px;
+  right: -170px;
+}
+#button:hover {
+  box-shadow: 0 6px 1px rgba(173, 6, 6, 0.9);
+}
+#link-img2:hover {
+  box-shadow: 0 6px 1px rgba(173, 6, 6, 0.9);
+}
+#link-img2 {
+  position: relative;
+  top: 170px;
+  background-color: rgb(246, 246, 246);
+  border-color: rgb(12, 62, 228);
+  border-radius: 20px;
+}
+/* Add Barber page styling */
+#save-profile {
+  position: relative;
+  top: -55px;
+}
+#save-profile2 {
+  position: relative;
+  top: -110px;
+}
+#save-profile3 {
+  position: relative;
+  top: -50px;
+}
+#save-profile4 {
+  position: relative;
+  top: -110px;
+}
+/* css login from page styling */
+#Login-page {
+  background: url(http://www.petersevin.com/wp-content/uploads/2014/11/Metal-Black-Background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Carousel styling */
+#carousel-holder {
+  margin-bottom: 30px;
+}
+
+#carousel-control,
+.item {
+  border-radius: 4px;
+}
+#slide-image {
+  position: relative;
+  padding: 30px;
+  top: 70px;
+  width: 900px;
+  height: 400px;
+} /* Add-Barber Page styling */
+#Add-Barber {
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_68vDcEMe1wrFHjYeMObykGx2y8GI8EvMvFMWQ8IaXikWv5IChw);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* height: 800px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+/* About Page Styling */
+#About-Img {
+  background: url(http://www.webdesignburn.com/wp-content/uploads/2015/04/Grey-Texture-Background-and-Wallpaper-12.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* appointment-page */
+#appointment-page {
+  background: url(https://w-dog.net/wallpapers/15/14/470573792362303/leaves-grey-background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* appointment-form */
+#appointment-form {
+  background: url(https://wallup.net/wp-content/uploads/2015/12/76913-abstract-gray-low_poly-748x421.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Dashboard-Page styling */
+#dashboard-page {
+  background: url(https://w-dog.net/wallpapers/15/14/470573792362303/leaves-grey-background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#profile-information2 {
+  position: "relative";
+  height: 900;
+  width: 400;
+  margin: 50;
+  text-align: "left";
+  padding: "0 1rem 3rem 2rem";
+  text-align: "center";
+  top: 500px;
+}
+#profile-information {
+  position: "relative";
+  height: 900;
+  width: 400;
+  margin: 50;
+  text-align: "left";
+  display: inline-block;
+  padding: "0 1rem 3rem 2rem";
+  text-align: "center";
+}
+
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: rgb(184, 15, 3);
+  border-radius: 20px;
+  box-shadow: 0 20px 1px rgb(24, 95, 247);
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 20px;
+  font-size: 30px;
+}
+
+/* Profile-form */
+
+#Profile-form {
+  background: url(http://www.vanessaturner.com/wp-content/uploads/2016/09/grey-background-12.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Profile-information */
+
+#Profile-information {
+  background-color: rgb(10, 80, 231);
+}
+
+/* Form-profile */
+
+#Form-profile {
+  background-color: white;
+}
+
+/* Update-haircut-images */
+#Update-haircut-images {
+  background: url(http://www.texturesforest.com/wp-content/uploads/2015/12/backround-06-780x488.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  font-size: 12px;
+  padding: 30px 20px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border-radius: 20px;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(84, 171, 253);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* font-logo */
+#font-logo {
+  color: black;
+}
+
+#font-logo:hover {
+  color: rgb(201, 11, 11);
+}

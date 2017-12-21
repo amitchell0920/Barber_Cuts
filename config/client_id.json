@@ -1,0 +1,17 @@
+{
+  "web": {
+    "client_id":
+      "793585711542-et99kvou7ufok1or8qv9c9lo4lecqqkr.apps.googleusercontent.com",
+    "project_id": "nodemailer-and-react-186121",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://accounts.google.com/o/oauth2/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_secret": "Dfx327dJ4sQBRXAkzoZd-guq"
+  }
+
+  // Authorization Code: 4/pypCAwBhpxsZIrfKn-VK7lvxOTk-2oA6V5sNX_pxGdw
+
+  // Refresh Token: 1/44LrNUiYNCh0lxt2HyNoyuwYpR6eYdUsaE8I9aGAfC0
+
+  // Access token: ya29.GlsFBWZTbpFUEvUXkBx88iUVsUyd4vkPjJTE7lOR5w-zaFruahELWNVtXUdKE6FOQZ5fYcHKjouzDghODnXQ6SWVpVxGR56LXRBKhCyk13kIxq1V7QccdGSmDzEg
+}
