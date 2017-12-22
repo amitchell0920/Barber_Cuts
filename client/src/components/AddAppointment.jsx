@@ -41,6 +41,7 @@ class AddAppointment extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state);
     var id = this.state.appointment._id;
     var name = encodeURIComponent(this.state.appointment.name);
     var email = encodeURIComponent(this.state.appointment.email);
@@ -65,15 +66,17 @@ class AddAppointment extends React.Component {
       if (xhr.status === 200) {
         let tempAppointment = this.state.appointment;
         //this.handleOnAdd(e);
+        //add service to appt object
+        tempAppointment.service = this.state.value;
         this.props.onSave(tempAppointment);
-        console.log(tempAppointment);
+
+        this.props.router.push(`/confirm/add/${email}`);
       }
     });
     xhr.send(formData);
     //this.props.router.goBack();
     //console.log(email);
-    //this.props.router.push(`/confirm/${id}`);
-    this.props.router.push(`/confirm/add/${email}`);
+    //this.props.router.push(`/contact/add/${email}`);
   }
 
   handleClick(event, index, value) {
@@ -91,7 +94,7 @@ class AddAppointment extends React.Component {
 
   handleOnAdd(e) {
     //e.preventDefault();
-    console.log('handleOnAdd started');
+    console.log("handleOnAdd started");
 
     var email = encodeURIComponent(this.state.appointment.email);
     var date = encodeURIComponent(this.state.appointment.date);

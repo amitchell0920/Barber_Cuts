@@ -28,15 +28,15 @@ class ConfirmPage extends Component {
     //this.handleSubmit = this.handleSubmit.bind(this);
     //this.handleChange = this.handleChange.bind(this);
     this.contactSubmit = this.contactSubmit.bind(this);
-    console.log(this.props.appointment);
+    console.log(this.props);
   }
 
   contactSubmit(event) {
     var conMsg = `Date: ${this.props.appointment.date} Time: ${
       this.props.appointment.time
-      } Service: ${this.props.appointment.service} Barber: ${
+    } Service: ${this.props.appointment.service} Barber: ${
       this.props.appointment.profileName
-      } Barber Email: ${this.props.appointment.profileEmail}`;
+    } Barber Email: ${this.props.appointment.profileEmail}`;
     var conSub = "Appointment Confirmation";
     var name = encodeURIComponent(this.props.appointment.name);
     var email = encodeURIComponent(this.props.appointment.email);
@@ -56,15 +56,14 @@ class ConfirmPage extends Component {
       if (xhr.status === 200) {
         console.log("MESSAGE SENT SUCCESSFULLY!");
         this.setState({ sent: true, contactSubmision: true });
-        // this.props.router.push("/");
+        this.props.router.push("/");
       }
     });
     console.log("Confirmation Send Here");
     xhr.send(message);
     console.log("STEP 2", message);
     //this.props.router.goBack();
-    this.props.router.push("/");
-    //   // this.props.history.push();
+    // this.props.history.push();
   }
 
   // handleChange(e) {
@@ -109,7 +108,7 @@ class ConfirmPage extends Component {
                     name="name"
                     //onChange={this.handleChange}
                     value={appt.name}
-                  //value={this.props.appointment.name}
+                    //value={this.props.appointment.name}
                   />
                 </div>
                 <br />
@@ -130,7 +129,7 @@ class ConfirmPage extends Component {
                     name="email"
                     //onChange={this.handleChange}
                     value={appt.email}
-                  // value={this.props.appointment.name}
+                    // value={this.props.appointment.name}
                   />
                 </div>
                 <br />
@@ -151,7 +150,7 @@ class ConfirmPage extends Component {
                     name="phone"
                     //onChange={this.handleChange}
                     value={appt.phone}
-                  // value={this.props.appointment.name}
+                    // value={this.props.appointment.name}
                   />
                 </div>
                 <br />
@@ -170,7 +169,7 @@ class ConfirmPage extends Component {
                   name="subject"
                   //onChange={this.handleChange}
                   value="Appointment Confirmation"
-                // value={this.props.appointment.name}
+                  // value={this.props.appointment.name}
                 />
               </div>
               <br />
@@ -193,10 +192,10 @@ class ConfirmPage extends Component {
                     //onChange={this.handleChange}
                     value={`Date: ${appt.date} Time: ${appt.time} Service: ${
                       appt.service
-                      } Barber: ${appt.profileName} Barber Email: ${
+                    } Barber: ${appt.profileName} Barber Email: ${
                       appt.profileEmail
-                      }`}
-                  // value={this.props.appointment.name}
+                    }`}
+                    // value={this.props.appointment.name}
                   />
                 </div>
                 <br />
@@ -210,8 +209,8 @@ class ConfirmPage extends Component {
             {this.state.contactSubmision == true ? (
               <p style={style}> Confirmation Submitted Successfully </p>
             ) : (
-                <p />
-              )}
+              <p />
+            )}
           </div>
         </div>
       </div>
@@ -229,25 +228,29 @@ ConfirmPage.contextTypes = {
 const mapStatetoProps = (state, props) => {
   console.log(state);
 
-
   //const appointmentId = parseInt(props.params.appointmentId, 10);
   const appointmentId = props.params.appointmentId;
+  const appointmentEmail = props.params.email;
   console.log(appointmentId);
+  console.log(appointmentEmail);
+
   if (appointmentId == null || appointmentId == undefined) {
     return {
       appointment: state.appointments.find(
-        appointment => appointment.email == props.params.appointmentEmail,
-        console.log("email", state)
+        appointment => appointment.email == appointmentEmail
+        // console.log("email", state)
+        //console.log("email", this.state.appointment),
+        //console.log("email", this.props.appointment)
       )
-    }
+    };
     return {
       appointment: state.appointments.find(
-        appointment => appointment._id == props.params.appointmentId,
+        appointment => appointment._id == appointmentId,
         console.log("id", state)
       )
     };
-  };
-}
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
   contactSubmit: bindActionCreators(contactSubmit, dispatch)
