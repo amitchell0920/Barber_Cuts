@@ -53,32 +53,8 @@ class AdminProfile extends React.Component {
     xhr.send();
   }
 
-  // componentDidUpdate() {
-  // const xhr = new XMLHttpRequest();
-  // xhr.open("get", "/api/adminusers");
-  // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  // // // set the authorization HTTP header
-  // xhr.setRequestHeader("Authorization", `bearer ${Auth.getToken()}`);
-  // xhr.responseType = "json";
-  // xhr.addEventListener("load", () => {
-  //   if (xhr.status === 200) {
-  //     let tempResponse = [];
-  //     for (var index in xhr.response) {
-  //       tempResponse.push(xhr.response[index]);
-  //     }
-  //     this.setState({
-  //       users: tempResponse
-  //     });
-  //   }
-  // });
-  // xhr.send();
-  // }
-
   handleUseDelete(e) {
-    console.log(e.target.id);
-    //console.log(this.state.user._id);
     var uid = encodeURIComponent(e.target.id);
-
     var data = `id=${uid}`;
 
     const xhr = new XMLHttpRequest();
@@ -94,25 +70,16 @@ class AdminProfile extends React.Component {
         for (var index in xhr.response) {
           tempResponse.push(xhr.response[index]);
         }
-        // this.setState({
-        //   users: tempResponse
-        // });
       }
     });
     xhr.send(data);
-    console.log(uid);
-
-    //window.location.reload();
-    //this.props.router.reload();
     const adminProfiles = this.state.profiles.filter(item => {
       return item._id != uid;
     });
-    console.log(adminProfiles);
     this.setState({ profiles: adminProfiles });
   }
 
   handleUsrUpt(e) {
-    // var id = encodeURIComponent(this.state.id);
     const adminProfile = this.state.profiles.filter(
       item => item._id === e.target.id
     );
@@ -125,9 +92,7 @@ class AdminProfile extends React.Component {
     var businessName = encodeURIComponent(adminProfile[0].businessName);
     var wsite = encodeURIComponent(adminProfile[0].wsite);
 
-    const formData = `id=${uid}&name=${name}&email=${email}&city=${
-      city
-    }&state=${state}&zip=${zip}&businessName=${businessName}&wsite=${wsite}`;
+    const formData = `id=${uid}&name=${name}&email=${email}&city=${city}&state=${state}&zip=${zip}&businessName=${businessName}&wsite=${wsite}`;
 
     const xhr = new XMLHttpRequest();
     xhr.open("put", "/api/profiles/" + uid);
@@ -137,7 +102,6 @@ class AdminProfile extends React.Component {
     xhr.responseType = "json";
     xhr.addEventListener("load", () => {
       if (xhr.status === 200) {
-        // foundProfiles = xhr.response[0];
         let tempResponse = [];
         for (var index in xhr.response) {
           tempResponse.push(xhr.response[index]);
@@ -145,21 +109,15 @@ class AdminProfile extends React.Component {
       }
     });
     xhr.send(formData);
-    console.log(formData);
-    // console.log(xhr.response.body);
-    //window.location.reload(true);
     const adminProfiles = this.state.profiles.map(item => {
       if (item._id === uid) {
-        console.log(item);
         this.props.onUpdate(item);
       }
       return item;
     });
-    console.log(adminProfiles);
   }
 
   handleChange(e) {
-    console.log(e.target);
     var foundIndex = -1;
     var tempProfileArray = this.state.profiles;
 
@@ -167,7 +125,6 @@ class AdminProfile extends React.Component {
       if (tempProfileArray[i]._id == e.target.id) foundIndex = i;
     }
 
-    console.log(foundIndex);
     if (foundIndex > -1) {
       tempProfileArray[foundIndex][e.target.name] = e.target.value;
       this.setState({
@@ -178,7 +135,6 @@ class AdminProfile extends React.Component {
 
   render() {
     const adminProfiles = this.state.profiles;
-    //console.log(profiles);
 
     return (
       <div>
@@ -194,7 +150,7 @@ class AdminProfile extends React.Component {
           <br />
           {adminProfiles.map(profile => {
             var AdminProfile = profile;
-            //console.log(AdminProfile);
+
             return (
               <Paper style={style} zDepth={5} key={profile._id}>
                 <h3>{profile.name}</h3>
@@ -300,7 +256,6 @@ const mapStatetoProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onSave: bindActionCreators(setProfiles, dispatch),
   onUpdate: bindActionCreators(saveProfile, dispatch)
-  // handleUseDelete: bindActionCreators(deleteprofile, dispatch)
 });
 
 export default connect(mapStatetoProps, mapDispatchToProps)(AdminProfile);

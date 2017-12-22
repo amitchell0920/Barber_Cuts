@@ -49,12 +49,6 @@ class Dashboard extends React.Component {
     this.renderButtons = this.renderButtons.bind(this);
   }
 
-  // componentWillUpdate(nextProps) {
-  //   if (!nextProps.Auth.isArrayuthenticated) {
-  //     this.context.router.history.push('/');
-  //   }
-  // };
-
   /**
    * This method will be executed after initial rendering.
    */
@@ -116,7 +110,6 @@ class Dashboard extends React.Component {
           if (tempResponse[i].email === this.props.state.thisuser.email) {
             userAuth = tempResponse[i].role;
             if (userAuth === "admin") {
-              console.log("I AM AN ADMIN");
               localStorage.setItem("admin", true);
             }
           } else {

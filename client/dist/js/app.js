@@ -34537,7 +34537,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	//import DashboardPage from "./containers/DashboardPage.jsx";
 	var routes = {
 	  // base component (wrapper for the whole application).
 	  component: _Base2.default,
@@ -34609,7 +34608,7 @@
 	    }
 	  }]
 	};
-	//import Profiles from "./containers/Profiles.jsx";
+
 	exports.default = routes;
 
 /***/ }),
@@ -37168,9 +37167,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _oldCarousel = __webpack_require__(426);
+	var _Carousel = __webpack_require__(426);
 
-	var _oldCarousel2 = _interopRequireDefault(_oldCarousel);
+	var _Carousel2 = _interopRequireDefault(_Carousel);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37191,7 +37190,7 @@
 	          "Welcome to the Home Page."
 	        )
 	      ),
-	      _react2.default.createElement(_oldCarousel2.default, null)
+	      _react2.default.createElement(_Carousel2.default, null)
 	    ),
 	    _react2.default.createElement("br", null)
 	  );
@@ -40210,12 +40209,6 @@
 	    return _this;
 	  }
 
-	  // componentWillUpdate(nextProps) {
-	  //   if (!nextProps.Auth.isArrayuthenticated) {
-	  //     this.context.router.history.push('/');
-	  //   }
-	  // };
-
 	  /**
 	   * This method will be executed after initial rendering.
 	   */
@@ -40288,7 +40281,6 @@
 	            if (tempResponse[i].email === _this3.props.state.thisuser.email) {
 	              userAuth = tempResponse[i].role;
 	              if (userAuth === "admin") {
-	                console.log("I AM AN ADMIN");
 	                localStorage.setItem("admin", true);
 	              }
 	            } else {
@@ -47373,31 +47365,6 @@
 	  };
 	};
 
-	// const ROOT_URL = "http://localhost:3000/api";
-	// export function contactSubmit(email, fullName, phoneNumber, subject, message) {
-	//   return function(dispatch) {
-	//     // Submit email/password to the server
-	//     axios
-	//       .post(`${ROOT_URL}/sendMessage`, {
-	//         email,
-	//         fullName,
-	//         phoneNumber,
-	//         subject,
-	//         message
-	//       })
-	//       .then(response => {
-	//         // If request is good...
-
-	//         console.log("MESSAGE SENT SUCCESSFULLY!");
-	//       })
-	//       .catch(() => {
-	//         // If request is bad...
-	//         // - Show an error to the user
-	//         dispatch(authError("Bad Login Info"));
-	//       });
-	//   };
-	// }
-
 	var handleClick = exports.handleClick = function handleClick() {
 	  return { type: types.HANDLE_CLICK };
 	};
@@ -51832,9 +51799,7 @@
 	        password: ""
 	      },
 	      userRole: "client"
-	      //users: []
 	    };
-	    //this.handleUserRole = this.handleUserRole.bind(this);
 	    _this.processForm = _this.processForm.bind(_this);
 	    _this.changeUser = _this.changeUser.bind(_this);
 	    return _this;
@@ -51920,28 +51885,6 @@
 	      });
 	    }
 
-	    // handleUserRole() {
-	    //   const xhr = new XMLHttpRequest();
-	    //   xhr.open("get", "/api/adminusers");
-	    //   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	    //   // // set the authorization HTTP header
-	    //   xhr.setRequestHeader("Authorization", `bearer ${Auth.getToken()}`);
-	    //   xhr.responseType = "json";
-	    //   xhr.addEventListener("load", () => {
-	    //     if (xhr.status === 200) {
-	    //       let tempResponse = [];
-	    //       for (var index in xhr.response) {
-	    //         tempResponse.push(xhr.response[index]);
-	    //       }
-	    //       this.props.onSave(tempResponse);
-	    //       this.setState({
-	    //         users: tempResponse
-	    //       });
-	    //     }
-	    //   });
-	    //   xhr.send();
-	    // }
-
 	    /**
 	     * Render the component.
 	     */
@@ -51974,14 +51917,11 @@
 
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
-	    //onSave: bindActionCreators(setUser, dispatch)
 	    thisUser: (0, _redux.bindActionCreators)(_actions.thisUser, dispatch)
 	  };
 	};
 
 	exports.default = (0, _reactRedux.connect)(mapStatetoProps, mapDispatchToProps)(LoginPage);
-
-	//export default LoginPage;
 
 /***/ }),
 /* 556 */
@@ -54361,7 +54301,6 @@
 	    _this.handleChange = _this.handleChange.bind(_this);
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
 	    _this.handleImages = _this.handleImages.bind(_this);
-	    //this.handleDelete = this.handleDelete.bind(this);
 	    return _this;
 	  }
 
@@ -54779,7 +54718,6 @@
 	  _createClass(Filestack, [{
 	    key: "onUpload",
 	    value: function onUpload(result) {
-	      console.log(result.filesUploaded);
 	      this.setState({ uploadedfiles: result.filesUploaded });
 	      var imagetemp = result.filesUploaded;
 	      var imageUrl = void 0;
@@ -54796,9 +54734,6 @@
 	        imageUrl: imageUrl,
 	        imgUrl: imageUrl
 	      });
-	      console.log(imageUrl);
-	      console.log(this.state.imageUrl);
-	      console.log(this.state.imgUrl);
 	      this.props.handleImages(imageUrl, this.props.type);
 	    }
 	  }, {
@@ -55492,6 +55427,8 @@
 	  _createClass(ProfileImages, [{
 	    key: "handleSubmit",
 	    value: function handleSubmit(e) {
+	      var _this2 = this;
+
 	      e.preventDefault();
 	      this.props.onSave(this.state.profile);
 	      var id = encodeURIComponent(this.state.profile._id);
@@ -55506,9 +55443,6 @@
 	      var dateCreated = encodeURIComponent(this.state.profile.dateCreated);
 	      var pimage = encodeURIComponent(this.state.profile.imageUrl);
 	      var image = encodeURIComponent([this.state.profile.hairCutUrls]);
-	      console.log(this.state.profile.imageUrl);
-	      console.log(this.state.profile.hairCutUrls);
-	      console.log(this.state.imageUrl);
 
 	      var formData = "name=" + name + "&email=" + email + "&address=" + address + "&city=" + city + "&state=" + state + "&zip=" + zip + "&businessName=" + businessName + "&wsite=" + wsite + "&dateCreated=" + dateCreated + "&pimage=" + pimage + "&image=" + image;
 
@@ -55521,10 +55455,10 @@
 	      xhr.addEventListener("load", function () {
 	        if (xhr.status === 200) {
 	          var tempResponse = {};
+	          _this2.props.router.goBack();
 	        }
 	      });
 	      xhr.send(formData);
-	      this.props.router.goBack();
 	    }
 	  }, {
 	    key: "handleChange",
@@ -55677,8 +55611,6 @@
 	ProfileImages.PropTypes = {};
 
 	var mapStatetoProps = function mapStatetoProps(state, props) {
-	  //console.log(state);
-
 	  var profileId = parseInt(props.params.profileId, 10);
 	  return {
 	    profile: state.profiles.find(function (profile) {
@@ -55745,7 +55677,6 @@
 	  _createClass(Filestack, [{
 	    key: "onUpload",
 	    value: function onUpload(result) {
-	      console.log(result.filesUploaded);
 	      this.setState({ uploadedfiles: result.filesUploaded });
 	      var imagetemp = result.filesUploaded;
 	      var imageUrl = void 0;
@@ -55761,9 +55692,6 @@
 	        imageUrl: imageUrl,
 	        imgUrl: imageUrl
 	      });
-	      console.log(imageUrl);
-	      console.log(this.state.imageUrl);
-	      console.log(this.state.imgUrl);
 	      this.props.handleImages(imageUrl, this.props.type);
 	    }
 	  }, {
@@ -55918,6 +55846,8 @@
 	  _createClass(AddBarber, [{
 	    key: "handleSubmit",
 	    value: function handleSubmit(e) {
+	      var _this2 = this;
+
 	      e.preventDefault();
 	      var name = encodeURIComponent(this.state.profile.name);
 	      var email = encodeURIComponent(this.state.profile.email);
@@ -55943,11 +55873,10 @@
 	      xhr.addEventListener("load", function () {
 	        if (xhr.status === 200) {
 	          var tempResponse = {};
+	          _this2.props.router.push("/profile");
 	        }
 	      });
 	      xhr.send(formData);
-	      //this.props.router.goBack();
-	      this.props.router.push("/profile");
 	    }
 	  }, {
 	    key: "handleChange",
@@ -56363,7 +56292,6 @@
 	    var _this = _possibleConstructorReturn(this, (AppointmentPage.__proto__ || Object.getPrototypeOf(AppointmentPage)).call(this, props));
 
 	    _this.state = {
-	      //profile: this.props.profile,
 	      appointments: []
 	    };
 
@@ -56392,7 +56320,6 @@
 	      xhr.responseType = "json";
 	      xhr.addEventListener("load", function () {
 	        if (xhr.status === 200) {
-	          // foundProfiles = xhr.response[0];
 	          var tempResponse = [];
 	          for (var index in xhr.response) {
 	            tempResponse.push(xhr.response[index]);
@@ -56722,9 +56649,7 @@
 	          var tempResponse = {};
 	        }
 	      });
-	      console.log("Send Here");
 	      xhr.send(formData);
-	      console.log(formData);
 	      this.props.router.goBack();
 	    }
 	  }, {
@@ -56857,10 +56782,7 @@
 	AppointmentForm.PropTypes = {};
 
 	var mapStatetoProps = function mapStatetoProps(state, props) {
-	  console.log(state);
-
 	  var appointmentId = parseInt(props.params.appointmentId, 10);
-	  console.log(appointmentId);
 	  return {
 	    appointment: state.appointments.find(function (appointment) {
 	      return appointment._id == props.params.appointmentId;
@@ -62139,10 +62061,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	//import '../css/style.css';
-
-	//import { confirmAppointment } from "../Actions/actions.js";
-
 
 	var style = { color: "green", fontsize: "18px" };
 
@@ -62162,10 +62080,7 @@
 	      appointment: _this.props.appointment,
 	      message: {}
 	    };
-	    //this.handleSubmit = this.handleSubmit.bind(this);
-	    //this.handleChange = this.handleChange.bind(this);
 	    _this.contactSubmit = _this.contactSubmit.bind(_this);
-	    console.log(_this.props.appointment);
 	    return _this;
 	  }
 
@@ -62192,32 +62107,15 @@
 	      xhr.responseType = "json";
 	      xhr.addEventListener("load", function () {
 	        if (xhr.status === 200) {
-	          console.log("MESSAGE SENT SUCCESSFULLY!");
 	          _this2.setState({ sent: true, contactSubmision: true });
-	          // this.props.router.push("/");
+	          _this2.props.router.push("/");
 	        }
 	      });
-	      console.log("Confirmation Send Here");
 	      xhr.send(message);
-	      console.log("STEP 2", message);
-	      //this.props.router.goBack();
-	      this.props.router.push("/");
-	      //   // this.props.history.push();
 	    }
-
-	    // handleChange(e) {
-	    //   let tempMessage = this.state.message;
-	    //   tempMessage[e.target.name] = e.target.value;
-
-	    //   this.setState({
-	    //     message: tempMessage
-	    //   });
-	    // }
-
 	  }, {
 	    key: "render",
 	    value: function render() {
-	      console.log("CONFIRM PAGE STATE", this.state);
 	      var appt = this.props.appointment;
 	      return _react2.default.createElement(
 	        "div",
@@ -62266,10 +62164,8 @@
 	                    id: "name",
 	                    floatingLabelText: "Your Name",
 	                    type: "text",
-	                    name: "name"
-	                    //onChange={this.handleChange}
-	                    , value: appt.name
-	                    //value={this.props.appointment.name}
+	                    name: "name",
+	                    value: appt.name
 	                  })
 	                ),
 	                _react2.default.createElement("br", null),
@@ -62291,10 +62187,8 @@
 	                    id: "email",
 	                    floatingLabelText: "Your Email",
 	                    type: "email",
-	                    name: "email"
-	                    //onChange={this.handleChange}
-	                    , value: appt.email
-	                    // value={this.props.appointment.name}
+	                    name: "email",
+	                    value: appt.email
 	                  })
 	                ),
 	                _react2.default.createElement("br", null),
@@ -62316,10 +62210,8 @@
 	                    id: "phone",
 	                    floatingLabelText: "Your Phone Number",
 	                    type: "phone",
-	                    name: "phone"
-	                    //onChange={this.handleChange}
-	                    , value: appt.phone
-	                    // value={this.props.appointment.name}
+	                    name: "phone",
+	                    value: appt.phone
 	                  })
 	                ),
 	                _react2.default.createElement("br", null)
@@ -62337,10 +62229,8 @@
 	                  id: "subject",
 	                  floatingLabelText: "Subject",
 	                  type: "text",
-	                  name: "subject"
-	                  //onChange={this.handleChange}
-	                  , value: "Appointment Confirmation"
-	                  // value={this.props.appointment.name}
+	                  name: "subject",
+	                  value: "Appointment Confirmation"
 	                })
 	              ),
 	              _react2.default.createElement("br", null),
@@ -62363,10 +62253,8 @@
 	                    name: "msg",
 	                    multiLine: true,
 	                    rows: 3,
-	                    rowsMax: 6
-	                    //onChange={this.handleChange}
-	                    , value: "Date: " + appt.date + " Time: " + appt.time + " Service: " + appt.service + " Barber: " + appt.profileName + " Barber Email: " + appt.profileEmail
-	                    // value={this.props.appointment.name}
+	                    rowsMax: 6,
+	                    value: "Date: " + appt.date + " Time: " + appt.time + " Service: " + appt.service + " Barber: " + appt.profileName + " Barber Email: " + appt.profileEmail
 	                  })
 	                ),
 	                _react2.default.createElement("br", null),
@@ -62396,27 +62284,22 @@
 	  router: _propTypes2.default.object.isRequired
 	};
 
-	// const mapStatetoProps = state => ({
-	//   state
-	// });
 	var mapStatetoProps = function mapStatetoProps(state, props) {
-	  console.log(state);
-
-	  //const appointmentId = parseInt(props.params.appointmentId, 10);
 	  var appointmentId = props.params.appointmentId;
-	  console.log(appointmentId);
+	  var appointmentEmail = props.params.email;
+
 	  if (appointmentId == null || appointmentId == undefined) {
 	    return {
 	      appointment: state.appointments.find(function (appointment) {
-	        return appointment.email == props.params.appointmentEmail;
-	      }, console.log("email", state))
+	        return appointment.email == appointmentEmail;
+	      })
 	    };
 	    return {
 	      appointment: state.appointments.find(function (appointment) {
-	        return appointment._id == props.params.appointmentId;
-	      }, console.log("id", state))
+	        return appointment._id == appointmentId;
+	      })
 	    };
-	  };
+	  }
 	};
 
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -62426,9 +62309,6 @@
 	};
 
 	exports.default = (0, _reactRedux.connect)(mapStatetoProps, mapDispatchToProps)(ConfirmPage);
-
-	// export default connect(mapStateToProps, actions)(ConfirmPage);
-	//export default ConfirmPage;
 
 /***/ }),
 /* 610 */
@@ -62785,7 +62665,6 @@
 	    _this.handleClick = _this.handleClick.bind(_this);
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
 	    _this.handleChange = _this.handleChange.bind(_this);
-	    _this.handleOnAdd = _this.handleOnAdd.bind(_this);
 	    return _this;
 	  }
 
@@ -62795,6 +62674,7 @@
 	      var _this2 = this;
 
 	      e.preventDefault();
+	      console.log(this.state);
 	      var id = this.state.appointment._id;
 	      var name = encodeURIComponent(this.state.appointment.name);
 	      var email = encodeURIComponent(this.state.appointment.email);
@@ -62818,16 +62698,15 @@
 	      xhr.addEventListener("load", function () {
 	        if (xhr.status === 200) {
 	          var tempAppointment = _this2.state.appointment;
-	          //this.handleOnAdd(e);
+
+	          //add service to appt object
+	          tempAppointment.service = _this2.state.value;
 	          _this2.props.onSave(tempAppointment);
-	          console.log(tempAppointment);
+
+	          _this2.props.router.push("/confirm/add/" + email);
 	        }
 	      });
 	      xhr.send(formData);
-	      //this.props.router.goBack();
-	      //console.log(email);
-	      //this.props.router.push(`/confirm/${id}`);
-	      this.props.router.push("/confirm/add/" + email);
 	    }
 	  }, {
 	    key: "handleClick",
@@ -62843,45 +62722,6 @@
 	      this.setState({
 	        appointment: tempAppointment
 	      });
-	    }
-	  }, {
-	    key: "handleOnAdd",
-	    value: function handleOnAdd(e) {
-	      //e.preventDefault();
-	      console.log('handleOnAdd started');
-
-	      var email = encodeURIComponent(this.state.appointment.email);
-	      var date = encodeURIComponent(this.state.appointment.date);
-	      var time = encodeURIComponent(this.state.appointment.time);
-	      // var profileEmail = encodeURIComponent(this.state.appointment.profileEmail);
-	      //var profileName = encodeURIComponent(this.state.appointment.profileName);
-
-	      var formData = "email=" + email + "&date=" + date + "&time=" + time;
-
-	      var xhr = new XMLHttpRequest();
-	      xhr.open("get", "/api/appointments/add/" + email);
-	      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	      // set the authorization HTTP header
-	      xhr.setRequestHeader("Authorization", "bearer " + _Auth2.default.getToken());
-	      xhr.responseType = "json";
-	      xhr.addEventListener("load", function () {
-	        if (xhr.status === 200) {
-	          //let tempResponse = {};
-	          var tempAppointment = xhr.response;
-	          console.log(tempAppointment);
-	          //handldeOnAdd(addAppointment);
-	          var _id = tempAppointment._id;
-	          //this.props.onSave(tempAppointment);
-	        }
-	      });
-	      xhr.send(formData);
-	      //this.props.router.goBack();
-	      //let id = tempAppointment._id;
-	      console.log(id);
-	      console.log(email);
-	      //this.props.router.push(`/confirm/${id}`);
-	      //this.props.router.push(`/confirm`);
-	      this.props.router.push("/confirm/" + email);
 	    }
 	  }, {
 	    key: "render",
@@ -63160,9 +63000,7 @@
 
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
-	    //onSubmit: bindActionCreators(addAppointment, dispatch),
 	    onSave: (0, _redux.bindActionCreators)(_actions.addAppointment, dispatch)
-	    //onSave: bindActionCreators(setAppointments, dispatch)
 	  };
 	};
 
@@ -63273,35 +63111,10 @@
 	      });
 	      xhr.send();
 	    }
-
-	    // componentDidUpdate() {
-	    // const xhr = new XMLHttpRequest();
-	    // xhr.open("get", "/api/adminusers");
-	    // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	    // // // set the authorization HTTP header
-	    // xhr.setRequestHeader("Authorization", `bearer ${Auth.getToken()}`);
-	    // xhr.responseType = "json";
-	    // xhr.addEventListener("load", () => {
-	    //   if (xhr.status === 200) {
-	    //     let tempResponse = [];
-	    //     for (var index in xhr.response) {
-	    //       tempResponse.push(xhr.response[index]);
-	    //     }
-	    //     this.setState({
-	    //       users: tempResponse
-	    //     });
-	    //   }
-	    // });
-	    // xhr.send();
-	    // }
-
 	  }, {
 	    key: "handleUseDelete",
 	    value: function handleUseDelete(e) {
-	      console.log(e.target.id);
-	      //console.log(this.state.user._id);
 	      var uid = encodeURIComponent(e.target.id);
-
 	      var data = "id=" + uid;
 
 	      var xhr = new XMLHttpRequest();
@@ -63317,20 +63130,12 @@
 	          for (var index in xhr.response) {
 	            tempResponse.push(xhr.response[index]);
 	          }
-	          // this.setState({
-	          //   users: tempResponse
-	          // });
 	        }
 	      });
 	      xhr.send(data);
-	      console.log(uid);
-
-	      //window.location.reload();
-	      //this.props.router.reload();
 	      var users = this.state.users.filter(function (item) {
 	        return item._id != uid;
 	      });
-	      console.log(users);
 	      this.setState({ users: users });
 	    }
 	  }, {
@@ -63338,7 +63143,6 @@
 	    value: function handleUsrUpt(e) {
 	      var _this3 = this;
 
-	      // var id = encodeURIComponent(this.state.id);
 	      var user = this.state.users.filter(function (item) {
 	        return item._id === e.target.id;
 	      });
@@ -63365,30 +63169,22 @@
 	        }
 	      });
 	      xhr.send(formData);
-	      console.log(formData);
-	      // console.log(xhr.response.body);
-	      //window.location.reload(true);
 	      var users = this.state.users.map(function (item) {
 	        if (item._id === uid) {
-	          console.log(item);
 	          _this3.props.onUpdate(item);
 	        }
 	        return item;
 	      });
-	      console.log(users);
 	    }
 	  }, {
 	    key: "handleChange",
 	    value: function handleChange(e) {
-	      console.log(e.target);
 	      var foundIndex = -1;
 	      var tempUserArray = this.state.users;
 
 	      for (var i = 0; i < tempUserArray.length; ++i) {
 	        if (tempUserArray[i]._id == e.target.id) foundIndex = i;
 	      }
-
-	      console.log(foundIndex);
 	      if (foundIndex > -1) {
 	        tempUserArray[foundIndex][e.target.name] = e.target.value;
 	        this.setState({
@@ -63402,8 +63198,6 @@
 	      var _this4 = this;
 
 	      var users = this.state.users;
-	      //console.log(users);
-
 	      return _react2.default.createElement(
 	        "div",
 	        null,
@@ -63425,7 +63219,6 @@
 	          _react2.default.createElement("br", null),
 	          users.map(function (user) {
 	            var AdminUser = user;
-	            //console.log(AdminUser);
 	            return _react2.default.createElement(
 	              _Paper2.default,
 	              { style: style, zDepth: 5, key: user._id },
@@ -63505,7 +63298,6 @@
 	  return {
 	    onSave: (0, _redux.bindActionCreators)(_actions.setUsers, dispatch),
 	    onUpdate: (0, _redux.bindActionCreators)(_actions.saveUser, dispatch)
-	    // handleUseDelete: bindActionCreators(deleteUser, dispatch)
 	  };
 	};
 
@@ -63576,8 +63368,6 @@
 	    value: function contactSubmit(event) {
 	      var _this2 = this;
 
-	      //event.preventDefault();
-
 	      var name = encodeURIComponent(this.refs.fullName.value);
 	      var email = encodeURIComponent(this.refs.email.value);
 	      var phone = encodeURIComponent(this.refs.phoneNumber.value);
@@ -63596,10 +63386,10 @@
 	        if (xhr.status === 200) {
 	          console.log("MESSAGE SENT SUCCESSFULLY!");
 	          _this2.setState({ sent: true, contactSubmision: true });
+	          _this2.props.router.push("/");
 	        }
 	      });
 	      xhr.send(message);
-	      this.props.router.push("/");
 	    }
 	  }, {
 	    key: "render",
@@ -63956,31 +63746,6 @@
 	  };
 	};
 
-	// const ROOT_URL = "http://localhost:3000/api";
-	// export function contactSubmit(email, fullName, phoneNumber, subject, message) {
-	//   return function(dispatch) {
-	//     // Submit email/password to the server
-	//     axios
-	//       .post(`${ROOT_URL}/sendMessage`, {
-	//         email,
-	//         fullName,
-	//         phoneNumber,
-	//         subject,
-	//         message
-	//       })
-	//       .then(response => {
-	//         // If request is good...
-
-	//         console.log("MESSAGE SENT SUCCESSFULLY!");
-	//       })
-	//       .catch(() => {
-	//         // If request is bad...
-	//         // - Show an error to the user
-	//         dispatch(authError("Bad Login Info"));
-	//       });
-	//   };
-	// }
-
 	var handleClick = exports.handleClick = function handleClick() {
 	  return { type: types.HANDLE_CLICK };
 	};
@@ -64090,35 +63855,10 @@
 	      });
 	      xhr.send();
 	    }
-
-	    // componentDidUpdate() {
-	    // const xhr = new XMLHttpRequest();
-	    // xhr.open("get", "/api/adminusers");
-	    // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	    // // // set the authorization HTTP header
-	    // xhr.setRequestHeader("Authorization", `bearer ${Auth.getToken()}`);
-	    // xhr.responseType = "json";
-	    // xhr.addEventListener("load", () => {
-	    //   if (xhr.status === 200) {
-	    //     let tempResponse = [];
-	    //     for (var index in xhr.response) {
-	    //       tempResponse.push(xhr.response[index]);
-	    //     }
-	    //     this.setState({
-	    //       users: tempResponse
-	    //     });
-	    //   }
-	    // });
-	    // xhr.send();
-	    // }
-
 	  }, {
 	    key: "handleUseDelete",
 	    value: function handleUseDelete(e) {
-	      console.log(e.target.id);
-	      //console.log(this.state.user._id);
 	      var uid = encodeURIComponent(e.target.id);
-
 	      var data = "id=" + uid;
 
 	      var xhr = new XMLHttpRequest();
@@ -64134,20 +63874,12 @@
 	          for (var index in xhr.response) {
 	            tempResponse.push(xhr.response[index]);
 	          }
-	          // this.setState({
-	          //   users: tempResponse
-	          // });
 	        }
 	      });
 	      xhr.send(data);
-	      console.log(uid);
-
-	      //window.location.reload();
-	      //this.props.router.reload();
 	      var adminProfiles = this.state.profiles.filter(function (item) {
 	        return item._id != uid;
 	      });
-	      console.log(adminProfiles);
 	      this.setState({ profiles: adminProfiles });
 	    }
 	  }, {
@@ -64155,7 +63887,6 @@
 	    value: function handleUsrUpt(e) {
 	      var _this3 = this;
 
-	      // var id = encodeURIComponent(this.state.id);
 	      var adminProfile = this.state.profiles.filter(function (item) {
 	        return item._id === e.target.id;
 	      });
@@ -64178,7 +63909,6 @@
 	      xhr.responseType = "json";
 	      xhr.addEventListener("load", function () {
 	        if (xhr.status === 200) {
-	          // foundProfiles = xhr.response[0];
 	          var tempResponse = [];
 	          for (var index in xhr.response) {
 	            tempResponse.push(xhr.response[index]);
@@ -64186,22 +63916,16 @@
 	        }
 	      });
 	      xhr.send(formData);
-	      console.log(formData);
-	      // console.log(xhr.response.body);
-	      //window.location.reload(true);
 	      var adminProfiles = this.state.profiles.map(function (item) {
 	        if (item._id === uid) {
-	          console.log(item);
 	          _this3.props.onUpdate(item);
 	        }
 	        return item;
 	      });
-	      console.log(adminProfiles);
 	    }
 	  }, {
 	    key: "handleChange",
 	    value: function handleChange(e) {
-	      console.log(e.target);
 	      var foundIndex = -1;
 	      var tempProfileArray = this.state.profiles;
 
@@ -64209,7 +63933,6 @@
 	        if (tempProfileArray[i]._id == e.target.id) foundIndex = i;
 	      }
 
-	      console.log(foundIndex);
 	      if (foundIndex > -1) {
 	        tempProfileArray[foundIndex][e.target.name] = e.target.value;
 	        this.setState({
@@ -64223,7 +63946,6 @@
 	      var _this4 = this;
 
 	      var adminProfiles = this.state.profiles;
-	      //console.log(profiles);
 
 	      return _react2.default.createElement(
 	        "div",
@@ -64246,7 +63968,7 @@
 	          _react2.default.createElement("br", null),
 	          adminProfiles.map(function (profile) {
 	            var AdminProfile = profile;
-	            //console.log(AdminProfile);
+
 	            return _react2.default.createElement(
 	              _Paper2.default,
 	              { style: style, zDepth: 5, key: profile._id },
@@ -64366,7 +64088,6 @@
 	  return {
 	    onSave: (0, _redux.bindActionCreators)(_actions.setProfiles, dispatch),
 	    onUpdate: (0, _redux.bindActionCreators)(_actions.saveProfile, dispatch)
-	    // handleUseDelete: bindActionCreators(deleteprofile, dispatch)
 	  };
 	};
 

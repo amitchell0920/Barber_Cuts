@@ -30,9 +30,7 @@ class LoginPage extends React.Component {
         password: ""
       },
       userRole: "client"
-      //users: []
     };
-    //this.handleUserRole = this.handleUserRole.bind(this);
     this.processForm = this.processForm.bind(this);
     this.changeUser = this.changeUser.bind(this);
   }
@@ -108,28 +106,6 @@ class LoginPage extends React.Component {
     });
   }
 
-  // handleUserRole() {
-  //   const xhr = new XMLHttpRequest();
-  //   xhr.open("get", "/api/adminusers");
-  //   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  //   // // set the authorization HTTP header
-  //   xhr.setRequestHeader("Authorization", `bearer ${Auth.getToken()}`);
-  //   xhr.responseType = "json";
-  //   xhr.addEventListener("load", () => {
-  //     if (xhr.status === 200) {
-  //       let tempResponse = [];
-  //       for (var index in xhr.response) {
-  //         tempResponse.push(xhr.response[index]);
-  //       }
-  //       this.props.onSave(tempResponse);
-  //       this.setState({
-  //         users: tempResponse
-  //       });
-  //     }
-  //   });
-  //   xhr.send();
-  // }
-
   /**
    * Render the component.
    */
@@ -155,10 +131,7 @@ const mapStatetoProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  //onSave: bindActionCreators(setUser, dispatch)
   thisUser: bindActionCreators(thisUser, dispatch)
 });
 
 export default connect(mapStatetoProps, mapDispatchToProps)(LoginPage);
-
-//export default LoginPage;

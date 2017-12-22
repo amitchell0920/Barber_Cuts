@@ -49,11 +49,7 @@ class AddBarber extends React.Component {
     var image = encodeURIComponent([this.state.profile.hairCutUrls]);
     console.log(this.state.profile.hairCutUrls);
 
-    const formData = `name=${name}&email=${email}&address=${address}&city=${
-      city
-    }&state=${state}&zip=${zip}&businessName=${businessName}&wsite=${
-      wsite
-    }&pimage=${pimage}&image=${image}`;
+    const formData = `name=${name}&email=${email}&address=${address}&city=${city}&state=${state}&zip=${zip}&businessName=${businessName}&wsite=${wsite}&pimage=${pimage}&image=${image}`;
 
     const xhr = new XMLHttpRequest();
     xhr.open("post", "/api/profiles");
@@ -64,11 +60,10 @@ class AddBarber extends React.Component {
     xhr.addEventListener("load", () => {
       if (xhr.status === 200) {
         let tempResponse = {};
+        this.props.router.push(`/profile`);
       }
     });
     xhr.send(formData);
-    //this.props.router.goBack();
-    this.props.router.push(`/profile`);
   }
 
   handleChange(e) {

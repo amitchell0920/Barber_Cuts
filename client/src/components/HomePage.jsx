@@ -1,5 +1,5 @@
 import React from "react";
-import Carousel2 from "./oldCarousel2.jsx";
+import Carousel2 from "./Carousel.jsx";
 const HomePage = () => (
   <div id="home">
     <div>

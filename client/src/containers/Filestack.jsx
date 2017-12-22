@@ -12,7 +12,6 @@ export default class Filestack extends React.Component {
   }
 
   onUpload(result) {
-    console.log(result.filesUploaded);
     this.setState({ uploadedfiles: result.filesUploaded });
     let imagetemp = result.filesUploaded;
     let imageUrl;
@@ -29,9 +28,6 @@ export default class Filestack extends React.Component {
       imageUrl: imageUrl,
       imgUrl: imageUrl
     });
-    console.log(imageUrl);
-    console.log(this.state.imageUrl);
-    console.log(this.state.imgUrl);
     this.props.handleImages(imageUrl, this.props.type);
   }
 

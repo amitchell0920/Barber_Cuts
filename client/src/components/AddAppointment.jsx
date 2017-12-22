@@ -36,7 +36,6 @@ class AddAppointment extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleOnAdd = this.handleOnAdd.bind(this);
   }
 
   handleSubmit(e) {
@@ -65,7 +64,7 @@ class AddAppointment extends React.Component {
     xhr.addEventListener("load", () => {
       if (xhr.status === 200) {
         let tempAppointment = this.state.appointment;
-        //this.handleOnAdd(e);
+
         //add service to appt object
         tempAppointment.service = this.state.value;
         this.props.onSave(tempAppointment);
@@ -74,9 +73,6 @@ class AddAppointment extends React.Component {
       }
     });
     xhr.send(formData);
-    //this.props.router.goBack();
-    //console.log(email);
-    //this.props.router.push(`/contact/add/${email}`);
   }
 
   handleClick(event, index, value) {
@@ -90,44 +86,6 @@ class AddAppointment extends React.Component {
     this.setState({
       appointment: tempAppointment
     });
-  }
-
-  handleOnAdd(e) {
-    //e.preventDefault();
-    console.log("handleOnAdd started");
-
-    var email = encodeURIComponent(this.state.appointment.email);
-    var date = encodeURIComponent(this.state.appointment.date);
-    var time = encodeURIComponent(this.state.appointment.time);
-    // var profileEmail = encodeURIComponent(this.state.appointment.profileEmail);
-    //var profileName = encodeURIComponent(this.state.appointment.profileName);
-
-    const formData = `email=${email}&date=${date}&time=${time}`;
-
-    const xhr = new XMLHttpRequest();
-    xhr.open("get", "/api/appointments/add/" + email);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    // set the authorization HTTP header
-    xhr.setRequestHeader("Authorization", `bearer ${Auth.getToken()}`);
-    xhr.responseType = "json";
-    xhr.addEventListener("load", () => {
-      if (xhr.status === 200) {
-        //let tempResponse = {};
-        let tempAppointment = xhr.response;
-        console.log(tempAppointment);
-        //handldeOnAdd(addAppointment);
-        let id = tempAppointment._id;
-        //this.props.onSave(tempAppointment);
-      }
-    });
-    xhr.send(formData);
-    //this.props.router.goBack();
-    //let id = tempAppointment._id;
-    console.log(id);
-    console.log(email);
-    //this.props.router.push(`/confirm/${id}`);
-    //this.props.router.push(`/confirm`);
-    this.props.router.push(`/confirm/${email}`);
   }
 
   render() {
@@ -353,9 +311,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  //onSubmit: bindActionCreators(addAppointment, dispatch),
   onSave: bindActionCreators(addAppointment, dispatch)
-  //onSave: bindActionCreators(setAppointments, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddAppointment);

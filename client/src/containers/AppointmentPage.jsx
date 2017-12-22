@@ -31,7 +31,6 @@ class AppointmentPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //profile: this.props.profile,
       appointments: []
     };
 
@@ -53,7 +52,6 @@ class AppointmentPage extends React.Component {
     xhr.responseType = "json";
     xhr.addEventListener("load", () => {
       if (xhr.status === 200) {
-        // foundProfiles = xhr.response[0];
         let tempResponse = [];
         for (var index in xhr.response) {
           tempResponse.push(xhr.response[index]);

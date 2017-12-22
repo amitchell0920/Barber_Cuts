@@ -53,32 +53,8 @@ class AdminUser extends React.Component {
     xhr.send();
   }
 
-  // componentDidUpdate() {
-  // const xhr = new XMLHttpRequest();
-  // xhr.open("get", "/api/adminusers");
-  // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  // // // set the authorization HTTP header
-  // xhr.setRequestHeader("Authorization", `bearer ${Auth.getToken()}`);
-  // xhr.responseType = "json";
-  // xhr.addEventListener("load", () => {
-  //   if (xhr.status === 200) {
-  //     let tempResponse = [];
-  //     for (var index in xhr.response) {
-  //       tempResponse.push(xhr.response[index]);
-  //     }
-  //     this.setState({
-  //       users: tempResponse
-  //     });
-  //   }
-  // });
-  // xhr.send();
-  // }
-
   handleUseDelete(e) {
-    console.log(e.target.id);
-    //console.log(this.state.user._id);
     var uid = encodeURIComponent(e.target.id);
-
     var data = `id=${uid}`;
 
     const xhr = new XMLHttpRequest();
@@ -94,25 +70,16 @@ class AdminUser extends React.Component {
         for (var index in xhr.response) {
           tempResponse.push(xhr.response[index]);
         }
-        // this.setState({
-        //   users: tempResponse
-        // });
       }
     });
     xhr.send(data);
-    console.log(uid);
-
-    //window.location.reload();
-    //this.props.router.reload();
     const users = this.state.users.filter(item => {
       return item._id != uid;
     });
-    console.log(users);
     this.setState({ users: users });
   }
 
   handleUsrUpt(e) {
-    // var id = encodeURIComponent(this.state.id);
     const user = this.state.users.filter(item => item._id === e.target.id);
     var uid = encodeURIComponent(e.target.id);
     var name = encodeURIComponent(user[0].name);
@@ -137,29 +104,21 @@ class AdminUser extends React.Component {
       }
     });
     xhr.send(formData);
-    console.log(formData);
-    // console.log(xhr.response.body);
-    //window.location.reload(true);
     const users = this.state.users.map(item => {
       if (item._id === uid) {
-        console.log(item);
         this.props.onUpdate(item);
       }
       return item;
     });
-    console.log(users);
   }
 
   handleChange(e) {
-    console.log(e.target);
     var foundIndex = -1;
     var tempUserArray = this.state.users;
 
     for (var i = 0; i < tempUserArray.length; ++i) {
       if (tempUserArray[i]._id == e.target.id) foundIndex = i;
     }
-
-    console.log(foundIndex);
     if (foundIndex > -1) {
       tempUserArray[foundIndex][e.target.name] = e.target.value;
       this.setState({
@@ -170,8 +129,6 @@ class AdminUser extends React.Component {
 
   render() {
     const users = this.state.users;
-    //console.log(users);
-
     return (
       <div>
         <div id="admin">
@@ -186,7 +143,6 @@ class AdminUser extends React.Component {
           <br />
           {users.map(user => {
             var AdminUser = user;
-            //console.log(AdminUser);
             return (
               <Paper style={style} zDepth={5} key={user._id}>
                 <h3>{user.name}</h3>
@@ -253,7 +209,6 @@ const mapStatetoProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onSave: bindActionCreators(setUsers, dispatch),
   onUpdate: bindActionCreators(saveUser, dispatch)
-  // handleUseDelete: bindActionCreators(deleteUser, dispatch)
 });
 
 export default connect(mapStatetoProps, mapDispatchToProps)(AdminUser);

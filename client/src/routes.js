@@ -1,6 +1,5 @@
 import Base from "./components/Base.jsx";
 import HomePage from "./components/HomePage.jsx";
-//import DashboardPage from "./containers/DashboardPage.jsx";
 import Dashboard from "./containers/Dashboard.jsx";
 import LoginPage from "./containers/LoginPage.jsx";
 import SignUpPage from "./containers/SignUpPage.jsx";
@@ -12,7 +11,6 @@ import ProfileImages from "./components/ProfileImages.jsx";
 import AddBarber from "./components/AddBarber.jsx";
 import AppointmentPage from "./containers/AppointmentPage.jsx";
 import AppointmentForm from "./components/AppointmentForm.jsx";
-//import Profiles from "./containers/Profiles.jsx";
 import ConfirmPage from "./containers/ConfirmPage.jsx";
 import AddAppointment from "./components/AddAppointment.jsx";
 import AdminUser from "./components/AdminUser.jsx";

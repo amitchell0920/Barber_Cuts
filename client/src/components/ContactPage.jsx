@@ -16,8 +16,6 @@ class ContactPage extends Component {
     this.contactSubmit = this.contactSubmit.bind(this);
   }
   contactSubmit(event) {
-    //event.preventDefault();
-
     var name = encodeURIComponent(this.refs.fullName.value);
     var email = encodeURIComponent(this.refs.email.value);
     var phone = encodeURIComponent(this.refs.phoneNumber.value);
@@ -36,10 +34,10 @@ class ContactPage extends Component {
       if (xhr.status === 200) {
         console.log("MESSAGE SENT SUCCESSFULLY!");
         this.setState({ sent: true, contactSubmision: true });
+        this.props.router.push("/");
       }
     });
     xhr.send(message);
-    this.props.router.push("/");
   }
 
   render() {

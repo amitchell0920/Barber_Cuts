@@ -52,15 +52,8 @@ class ProfileImages extends Component {
     var dateCreated = encodeURIComponent(this.state.profile.dateCreated);
     var pimage = encodeURIComponent(this.state.profile.imageUrl);
     var image = encodeURIComponent([this.state.profile.hairCutUrls]);
-    console.log(this.state.profile.imageUrl);
-    console.log(this.state.profile.hairCutUrls);
-    console.log(this.state.imageUrl);
 
-    const formData = `name=${name}&email=${email}&address=${address}&city=${
-      city
-    }&state=${state}&zip=${zip}&businessName=${businessName}&wsite=${
-      wsite
-    }&dateCreated=${dateCreated}&pimage=${pimage}&image=${image}`;
+    const formData = `name=${name}&email=${email}&address=${address}&city=${city}&state=${state}&zip=${zip}&businessName=${businessName}&wsite=${wsite}&dateCreated=${dateCreated}&pimage=${pimage}&image=${image}`;
 
     const xhr = new XMLHttpRequest();
     xhr.open("put", "/api/profiles/" + id);
@@ -71,10 +64,10 @@ class ProfileImages extends Component {
     xhr.addEventListener("load", () => {
       if (xhr.status === 200) {
         let tempResponse = {};
+        this.props.router.goBack();
       }
     });
     xhr.send(formData);
-    this.props.router.goBack();
   }
 
   handleChange(e) {
@@ -172,8 +165,6 @@ class ProfileImages extends Component {
 ProfileImages.PropTypes = {};
 
 const mapStatetoProps = (state, props) => {
-  //console.log(state);
-
   const profileId = parseInt(props.params.profileId, 10);
   return {
     profile: state.profiles.find(

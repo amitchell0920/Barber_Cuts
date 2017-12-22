@@ -101,9 +101,7 @@ class AppointmentForm extends Component {
         let tempResponse = {};
       }
     });
-    console.log("Send Here");
     xhr.send(formData);
-    console.log(formData);
     this.props.router.goBack();
   }
 
@@ -208,10 +206,7 @@ class AppointmentForm extends Component {
 AppointmentForm.PropTypes = {};
 
 const mapStatetoProps = (state, props) => {
-  console.log(state);
-
   const appointmentId = parseInt(props.params.appointmentId, 10);
-  console.log(appointmentId);
   return {
     appointment: state.appointments.find(
       appointment => appointment._id == props.params.appointmentId

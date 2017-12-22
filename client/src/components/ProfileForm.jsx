@@ -38,7 +38,6 @@ class ProfileForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleImages = this.handleImages.bind(this);
-    //this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleSubmit(e) {
@@ -102,7 +101,6 @@ class ProfileForm extends Component {
           <br />
           <br />
           <div style={styles.root}>
-            {/* <Paper id="profile-information2"> */}
             <center>
               <div id="Profile-information">
                 <h2>Profile Information</h2>
@@ -221,7 +219,6 @@ class ProfileForm extends Component {
                 </button>
               </form>
             </center>
-            {/* </Paper> */}
           </div>
         </div>
         <br />
